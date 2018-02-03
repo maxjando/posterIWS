@@ -123,7 +123,7 @@
 \par \textbf{docker images}
 
 \vspace{1cm}
-\par Entfernt das angegeben Image.
+\par Entfernt das angegebene Image. (-f force)
 \par \textbf{docker image rm} \textcolor{docker-lb}{\textbf{ImageId}}
 
 \end{block}
@@ -135,11 +135,11 @@
 
 \vspace{1cm}
 \par Lädt das getaggte Image in die Registry hoch.
-\par \textbf{docker push} \textcolor{docker-lb}{\textbf{username}}/repository:\textcolor{docker-lb}{\textbf{tag}}
+\par \textbf{docker push} \textcolor{docker-lb}{\textbf{username/repository:tag}}
 
 \vspace{1cm}
 \par Tagged das Image für späteres hochladen.
-\par \textbf{docker tag } $<$\textcolor{docker-lb}{\textbf{image}}$>$ \textcolor{docker-lb}{\textbf{username}}/repository:\textcolor{docker-lb}{\textbf{tag}}
+\par \textbf{docker tag } \textcolor{docker-lb}{\textbf{image}} \textcolor{docker-lb}{\textbf{username/repository:tag}}
 
 \vspace{1cm}
 \par Zieht ein Image oder ein Repository aus der Registry.
@@ -231,37 +231,36 @@ Docker Ecosystem
 
 \begin{block}{Dockerfile}
 
-\par \textcolor{docker-green}{\textbf{\# Nutzen eines Vaterimages}}
-\par \textcolor{docker-pu}{\textbf{FROM}} \textcolor{docker-red}{\textbf{(Vaterimage)}}
+\par Nutzen eines Vaterimages
+\par \textcolor{docker-pu}{\textbf{FROM}} \textcolor{docker-red}{\textbf{Vaterimage}}
 
 \vspace{1cm}
-\par \textcolor{docker-green}{\textbf{\# Setzt den Ordner in dem alle Befehle ausgeführt werden}}
-\par \textcolor{docker-pu}{\textbf{WORKDIR}} \textcolor{docker-red}{\textbf{(Ordner)}}
+\par Setzt den Ordner in dem alle Befehle ausgeführt werden
+\par \textcolor{docker-pu}{\textbf{WORKDIR}} \textcolor{docker-red}{\textbf{Ordner}}
 
 \vspace{1cm}
-\par \textcolor{docker-green}{\textbf{\# Kopiert Daten von (src) nach (des)}}
-\par \textcolor{docker-pu}{\textbf{ADD}} \textcolor{docker-red}{\textbf{(url) (des)}}
-\par \textcolor{docker-pu}{\textbf{COPY}} \textcolor{docker-red}{\textbf{(src) (des)}}
+\par Kopiert Daten von source nach destination
+\par \textcolor{docker-pu}{\textbf{ADD}} \textcolor{docker-red}{\textbf{url des}}
+\par \textcolor{docker-pu}{\textbf{COPY}} \textcolor{docker-red}{\textbf{src des}}
 
 \vspace{1cm}
-\par \textcolor{docker-green}{\textbf{\# Gibt einen Port frei}}
-\par \textcolor{docker-pu}{\textbf{EXPOSE}} \textcolor{docker-red}{\textbf{(Nummer)}}
+\par Gibt einen Port frei
+\par \textcolor{docker-pu}{\textbf{EXPOSE}} \textcolor{docker-red}{\textbf{Nummer}}
 
 \vspace{1cm}
-\par \textcolor{docker-green}{\textbf{\# Definiert ein Argument. Kann mit \$$<$ARG\_NAME$>$ darauf zugreifen.}}
-\par \textcolor{docker-pu}{\textbf{ARG}} \textcolor{docker-red}{\textbf{(Argument)}}
+\par Definiert ein Argument. Kann mit \texttt{\$$<$ARG\_NAME$>$} darauf zugreifen \par \textcolor{docker-pu}{\textbf{ARG}} \textcolor{docker-red}{\textbf{Argument}}
 
 \vspace{1cm}
-\par \textcolor{docker-green}{\textbf{\# Definiert eine Umgebungsvariable}}
-\par \textcolor{docker-pu}{\textbf{ENV}} \textcolor{docker-red}{\textbf{(Umgebungsvariable)}}
+\par Definiert eine Umgebungsvariable
+\par \textcolor{docker-pu}{\textbf{ENV}} \textcolor{docker-red}{\textbf{Umgebungsvariable}}
 
 \vspace{1cm}
-\par \textcolor{docker-green}{\textbf{\# Startet ein Programm mit übergebenen Parametern}}
+\par Startet ein Programm mit übergebenen Parametern
 \par \textcolor{docker-pu}{\textbf{CMD}} \textcolor{docker-red}{\textbf{["Programm", "Parameter"]}}
 
 \vspace{1cm}
-\par \textcolor{docker-green}{\textbf{\# Führt einen beliebigen Befehl auf dem Container aus}}
-\par \textcolor{docker-pu}{\textbf{RUN}} \textcolor{docker-red}{\textbf{(Befehl)}}
+\par Führt einen beliebigen Befehl auf dem Container aus
+\par \textcolor{docker-pu}{\textbf{RUN}} \textcolor{docker-red}{\textbf{Befehl}}
 
 \begin{small}
 \vspace{1cm}
