@@ -149,32 +149,6 @@
 \par Suche in der Registry nach einem Image.
 \par \textbf{docker search} \textcolor{docker-lb}{\textbf{name}}
 
-\begin{center}
-\vspace{2cm}
-Docker Ecosystem
-\end{center}
-\begin{figure}
-\includegraphics[scale=1.0]{eco}
-\end{figure}
-
-
-
-\end{block}
-
-\end{column} % End of the first column
-
-\begin{column}{\sepwid}\end{column} % Empty spacer column
-
-\begin{column}{\specialcolwid} % Begin a column which is two columns wide (column 2)
-
-\begin{block}{Run}
-
-\par Startet die App und nimmt mit dem Befehl -p ein Portmapping vor, wodurch der Port 80 aus dem Container auf den Port 4000 des PCs gesetzt wird. Mit dem Befehl -d kann die App auch im Hintergrund gestartet werden.
-\par \textbf{docker run} \textcolor{docker-pu}{\textbf{-p}} 4000:80 \textcolor{docker-lb}{\textbf{appname}}
-
-\vspace{1cm}
-\par Startet die App aus dem Repository.
-\par \par \textbf{docker run} \textcolor{docker-pu}{\textbf{-p}} 4000:80 \textcolor{docker-lb}{\textbf{username/repository:tag}}
 
 \end{block}
 
@@ -196,6 +170,51 @@ Docker Ecosystem
 \par \par \textbf{docker service ls} \textcolor{docker-lb}{\textbf{ContainerID}}†
 
 \end{block}
+
+\end{column} % End of the first column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\specialcolwid} % Begin a column which is two columns wide (column 2)
+
+\begin{block}{Run}
+
+\par Mit \textbf{docker run} können Container anhand von Images erstellt und gestartet werden. Das angegebene Baseimage wird zuerst lokal gesucht. Findet es keins, sucht es auf dem Docker Hub.
+\vspace{1cm}
+
+
+\par \textbf{docker run} \textcolor{docker-pu}{} \textcolor{docker-lb}{\textbf{appname}}
+\vspace{1cm}
+
+\par Startet die App aus dem Repository:
+\par \textbf{docker run} \textcolor{docker-pu}{} \textcolor{docker-lb}{\textbf{username/repository:tag}}
+\vspace{1cm}
+
+\par Options:
+\begin{itemize}
+\item \textbf{-d} -- Startet den Container Im Hintergrund
+\item \textbf{-it} -- Startet den Container im interactive-Modus, sodass man auf dem Container arbeiten kann.
+\item \textbf{-p $<$host\_port$>$:$<$container\_port$>$} -- Mappt einen Port vom Container auf das Hostsystem
+\item \textbf{--expose} -- Öffnet einen oder mehrere Ports
+\item \textbf{-P} -- Mappt alle offenen Ports vom Container auf zufällige Hostsystem-Ports.
+\item \textbf{--name} -- Gibt dem Container einen Namen, der anstelle der ID für Befehle verwendet werden kann
+\item \textbf{-v $<$Datei\_oder\_Ordner\_zum\_mounten$>[$\:$>$Ziel\_auf\_dem\_Container$>]$} -- Mountet den angegebenen Ordner vom Hostsystem auf den Container, sodass dieser auf Dateien zugreifen kann.
+\item \textbf{-e $<$VARIABLEN\_NAME$>$ \ = $<$VARIABLEN\_WERT$>$} -- Definiert eine Umgebungsvariable für den Container.
+\item \textbf{--link $<$container\_name$>[$:$<$name\_in\_new\_container$>]$} --  Linkt einen bestehenden Container in den neuen, sodass sich der Container mit dem anderen Verbinden kann.
+\end{itemize}
+
+
+\begin{center}
+\vspace{2cm}
+Docker Ecosystem
+\end{center}
+\begin{figure}
+\includegraphics[scale=0.75]{eco}
+\end{figure}
+
+\end{block}
+
+
 
 \end{column} % End of the second column
 
@@ -231,6 +250,10 @@ Docker Ecosystem
 \vspace{1cm}
 \par \textcolor{docker-green}{\textbf{\# Definiert ein Argument. Kann mit \$$<$ARG\_NAME$>$ darauf zugreifen.}}
 \par \textcolor{docker-pu}{\textbf{ARG}} \textcolor{docker-red}{\textbf{(Argument)}}
+
+\vspace{1cm}
+\par \textcolor{docker-green}{\textbf{\# Definiert eine Umgebungsvariable}}
+\par \textcolor{docker-pu}{\textbf{ENV}} \textcolor{docker-red}{\textbf{(Umgebungsvariable)}}
 
 \vspace{1cm}
 \par \textcolor{docker-green}{\textbf{\# Startet ein Programm mit übergebenen Parametern}}
