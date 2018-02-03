@@ -114,9 +114,9 @@
 
 \begin{block}{Build}
 
-\par Baut ein Image aus einem Dockerfile im momentanen Verzeichnis und \textit{tagged} es.
+\par Baut ein Image aus einem Dockerfile im Momentanen Verzeichnis und \textit{tagged} es.
 
-\par \textbf{docker build} \textcolor{docker-pu}{\textbf{-t}} \textcolor{docker-lb}{\textbf{appname}}
+\par \textbf{docker build} \textcolor{docker-pu}{\textbf{-t}} \textcolor{docker-lb}{\textbf{appname .}}
 
 \vspace{1cm}
 \par Listet alle Docker Images auf.
@@ -193,15 +193,7 @@ Docker Ecosystem
 
 \vspace{1cm}
 \par Listet alle laufenden Services auf.
-\par \par \textbf{docker service ls} \textcolor{docker-lb}{\textbf{ContainerID}}
-
-\vspace{1cm}
-\par Initialisiert einen Swarm damit er genutzt werden kann.
-\par \par \textbf{docker swarm init} \textcolor{docker-lb}{\textbf{ContainerID}}
-
-\vspace{1cm}
-\par Startet die App als Swarm mit den Konfigurationen des composefiles.
-\par \par \textbf{docker stack deploy} \textcolor{docker-pu}{\textbf{-p}} \textcolor{docker-lb}{\textbf{composefile appname}}
+\par \par \textbf{docker service ls} \textcolor{docker-lb}{\textbf{ContainerID}}†
 
 \end{block}
 
@@ -211,12 +203,7 @@ Docker Ecosystem
 
 \begin{column}{\onecolwid} % The third column
 
-\begin{figure}
-\begin{center}
-\vfill
-\includegraphics[scale=0.7]{docker}
-\end{center}
-\end{figure}
+
 
 
 %----------------------------------------------------------------------------------------
@@ -234,15 +221,35 @@ Docker Ecosystem
 
 \vspace{1cm}
 \par \textcolor{docker-green}{\textbf{\# Kopiert Daten von (src) nach (des)}}
-\par \textcolor{docker-pu}{\textbf{ADD}} \textcolor{docker-red}{\textbf{(src) (des)}}
+\par \textcolor{docker-pu}{\textbf{ADD}} \textcolor{docker-red}{\textbf{(url) (des)}}
+\par \textcolor{docker-pu}{\textbf{COPY}} \textcolor{docker-red}{\textbf{(src) (des)}}
 
 \vspace{1cm}
 \par \textcolor{docker-green}{\textbf{\# Gibt einen Port frei}}
 \par \textcolor{docker-pu}{\textbf{EXPOSE}} \textcolor{docker-red}{\textbf{(Nummer)}}
 
 \vspace{1cm}
+\par \textcolor{docker-green}{\textbf{\# Definiert ein Argument. Kann mit \$$<$ARG\_NAME$>$ darauf zugreifen.}}
+\par \textcolor{docker-pu}{\textbf{ARG}} \textcolor{docker-red}{\textbf{(Argument)}}
+
+\vspace{1cm}
 \par \textcolor{docker-green}{\textbf{\# Startet ein Programm mit übergebenen Parametern}}
 \par \textcolor{docker-pu}{\textbf{CMD}} \textcolor{docker-red}{\textbf{[(Programm), (Parameter)]}}
+
+\vspace{1cm}
+\par \textcolor{docker-green}{\textbf{\# Führt einen beliebigen Befehl auf dem Container aus}}
+\par \textcolor{docker-pu}{\textbf{RUN}} \textcolor{docker-red}{\textbf{(Befehl)}}
+
+\begin{small}
+\vspace{1cm}
+\par TIPP: Da bei jedem RUN ein neuer Container gecacht wird, kann man Befehle mit \&\& aneinander hängen um die Anzahl der Images/Layer zu reduzieren.
+
+\vspace{1cm}
+\par Bsp.: RUN apt-get update \&\& apt-get upgrade
+	
+\end{small}
+
+
 
 \vspace{3cm}
 
